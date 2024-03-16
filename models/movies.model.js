@@ -27,4 +27,56 @@ async function upload(id, filename){
     }
 }
 
-module.exports = { getAll, upload }
+async function getId(id){
+    try {
+        const result = await pool.query(
+            `SELECT * FROM movies WHERE id = $1`,
+            [id]
+        );
+
+        return result
+    } catch(error) {
+        throw error
+    }
+}
+
+async function addAMovie(title, genres, year){
+    try {
+        const result = await pool.query(
+            `INSERT INTO movies (title, genres, year) VALUES ($1, $2, $3)`,
+            [title, genres, year]
+        );
+
+        return result
+    } catch(error) {
+        throw error
+    }
+}
+
+async function deleteAMovie(id){
+    try {
+        const result = await pool.query(
+            `DELETE FROM movies WHERE id = $1`,
+            [id]
+        );
+
+        return result
+    } catch(error) {
+        throw error
+    }
+}
+
+async function updateAMovie(id, title, genres, year){
+    try {
+        const result = await pool.query(
+            `UPDATE movies SET title = $1, genres = $2, year = $3 WHERE id = $4`,
+            [title, genres, year, id]
+        );
+
+        return result
+    } catch(error) {
+        throw error
+    }
+}
+
+module.exports = { getAll, upload, getId, addAMovie, deleteAMovie, updateAMovie }
