@@ -3,7 +3,7 @@ const multer = require('multer');
 const upload = multer({
     fileFilter: function(req, res, cb){
         const acceptedType = ['png', 'jpg', 'jpeg'];
-        const format = file.originalname.split('.')[1];
+        const format = file.originalname.split('.').pop();
         console.log({file});
     
         if (!acceptedType.includes(format)) {
@@ -25,4 +25,4 @@ const upload = multer({
     }),
 })
 
-module.exports = () => upload.single('photo');
+module.exports = () => upload.single('image');

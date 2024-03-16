@@ -12,12 +12,12 @@ async function getAll(){
     }
 }
 
-async function upload(id, filename){
-    console.log('Uploading', id, filename)
+async function upload(id, source){
+    console.log('Uploading', id, source)
     try {
         const result = await pool.query(
-            `UPDATE movies SET photo = $1 WHERE id = $2`,
-            [filename, id]
+            `UPDATE movies SET photo=$1 WHERE id=$2`,
+            [source, id]
         );
 
         return result

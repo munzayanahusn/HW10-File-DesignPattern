@@ -1,8 +1,8 @@
 const express = require('express');
 const router = require('express').Router();
-const multer = require('../middlewares/multer');
 
 const { getMovies, uploadPhoto, getMoviesById, addMovies, deleteMovie, updateMovie } = require('../controllers/movies.controller');
+const multer = require('../middlewares/multer');
 
 router.use(express.json());
 router.use(express.urlencoded({ extended: true }));
