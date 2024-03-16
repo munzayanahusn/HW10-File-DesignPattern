@@ -18,6 +18,10 @@ Repositori ini berisi implementasi program untuk pembuatan endpoint CRUD pada ta
 5. Lakukan instalasi setiap pre-requisite package : ```npm install <package>```
 6. Jalankan program : ```npm run start```
 7. Lakukan pengujian endpoint melalui browser atau Postman
+8. Jika ingin mengupload foto, tambahkan informasi pada Body request dengan format form-data.<br>
+   Key = "image"<br>
+   Type = File<br>
+   Value = Upload foto yang diinginkan
 
 ## Kontributor
 Husnia Munzayana
